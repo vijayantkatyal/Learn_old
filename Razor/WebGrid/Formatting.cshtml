@@ -1,0 +1,24 @@
+﻿@{
+    var db = Database.Open("Blog");
+    var selectQueryString = "SELECT * FROM Posts ORDER BY ID";
+    var data = db.Query(selectQueryString);
+    var grid = new WebGrid(data);
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <div id="grid">
+            @grid.GetHtml(
+            columns:grid.Columns(
+            grid.Column("ID"),
+            grid.Column("Summary",format:@<i>@item.Body</i>)
+            ))
+        </div>
+    </body>
+</html>

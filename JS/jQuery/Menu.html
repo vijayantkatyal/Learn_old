@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            #container
+            {
+                position:relative;
+            }
+            
+            #menu{
+                position:absolute;
+                top:0;
+                right:0;
+                }
+            #menu , #menu ul{
+                padding:0;
+                margin:0;
+                list-style:none;
+                }
+            #menu li{
+                float:left;
+                background:#FFF;
+                }
+            #menu a{
+                display:block;
+                padding:4px;
+                width:10em;
+                }
+            #menu li ul{
+                position:absolute;
+                width:10em;
+                left:-999em;
+                }
+            #menu li:hover ul,#menu li ul:hover{
+                left:auto;
+                }
+        </style>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function(){
+                $('#menu li ul').css({
+display: "none",
+left: "auto"
+});
+$('#menu li').hover(function() {
+$(this)
+.find('ul')
+.stop(true, true)
+.slideDown('fast');
+}, function() {
+$(this)
+.find('ul')
+.stop(true,true)
+.fadeOut('fast');
+});
+                });
+        </script>
+    </head>
+    <body>
+        <ol id="menu">
+            <li>Home</li>
+            <li>
+                <ul>
+                    <li>Car</li>
+                    <li>Bike</li>
+                </ul>
+            </li>
+            <li>About</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script>
+            function message()
+            {
+                try
+                {
+                    adddlert("Welcome Guest!");
+                }
+                catch(err)
+                {
+                    txt="There was an error on this page.\n\n";
+                    txt+="Error description: "+err.Message+"\n\n";
+                    txt+="Click Ok to continue.\n\n";
+                    alert(txt);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="message()">Try Catch</button>
+    </body>
+</html>

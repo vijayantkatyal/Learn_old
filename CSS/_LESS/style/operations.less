@@ -1,0 +1,8 @@
+@base: 5%;
+@filter: (@base * 2);
+@other: (@base + @filter);
+@base-color: #000;
+
+color: (#888 / 4);
+background-color: (@base-color + #111);
+height: (100% / 2 + @filter);

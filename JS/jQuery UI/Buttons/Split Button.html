@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $('#rerun')
+                .button()
+                .click(function() {
+                    alert("Running the last action");
+                })
+                .next()
+                    .button
+                    ({
+                        text:false,
+                        icons:
+                        {
+                            primary:'ui-icon-triangle-1-s'
+                        }
+                    })
+                    .click(function()
+                    {
+                        alert("Could display a menu to select an action");
+                    })
+                    .parent()
+                    .buttonset();
+            });
+        </script>
+    </head>
+    <body>
+        <button id="rerun">Run last action</button>
+        <button id="select">Select an action</button>
+    </body>
+</html>

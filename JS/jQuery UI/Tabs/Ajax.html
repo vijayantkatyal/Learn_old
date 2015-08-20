@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $("#tabs").tabs
+                ({
+                    ajaxOptions:
+                    {
+                        error:function(xhr,status,index,anchor)
+                        {
+                            $(anchor.hash).html("couldn't load this tab"+"if this wouldn't be a demo")
+                        }
+                    }    
+                });  
+            });
+        </script>
+    </head>
+    <body>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Preloaded</a></li>
+                <li><a href="ajax/content1.html">Tab 1</a></li>
+                <li><a href="ajax/content2.html">Tab 2</a></li>
+                <li><a href="ajax/content3-slow.html">Tab 3</a></li>
+                <li><a href="ajax/content4-broken">Tab 4</a></li>
+            </ul>
+            
+            <div id="tabs-1">
+                <p>content of Tab 1</p>
+            </div>
+        </div>
+    </body>
+</html>

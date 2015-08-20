@@ -1,0 +1,8 @@
+.mixin(@a: 0){
+	border: @a solid #000;
+	padding: 10px;
+}
+
+h3{
+	.mixin(2px) !important; // mark all important
+}

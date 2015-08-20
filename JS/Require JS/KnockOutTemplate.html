@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" data-main="scripts/knock" src="scripts/require.js"></script>
+        <!--<script type="text/javascript" src="scripts/lib/tmpl.confg.js"></script>-->
+    </head>
+    <body>
+        <h2>Participants</h2>
+        Here are the participants:
+        
+        <div data-bind="template: { name: 'person-template', data: buyer }"></div>
+        
+        <div data-bind="template: { name: 'person-template', data: seller }"></div>
+
+        <!--<div data-bind="foreach: buyer">
+            <h3 data-bind="text: name"> </h3>
+            <p> Credits: <span data-bind = "text: credits"> </span> </p>
+        </div>-->
+    </body>
+</html>

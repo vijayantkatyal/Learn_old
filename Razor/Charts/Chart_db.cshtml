@@ -1,0 +1,10 @@
+﻿@{
+
+var db = Database.Open("Blog");
+var data = db.Query("SELECT ID,Body From Posts");
+    
+var myChart = new Chart(width:600, height:400, theme:ChartTheme.Blue)
+    .AddTitle("Product Sales")
+    .DataBindTable(dataSource:data, xField:"Body")
+    .Write();
+}

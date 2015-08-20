@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function()
+            {
+                $('#fader').hover(function()
+                {
+                    $(this).find('img:eq(1)').stop(true,true).fadeIn();
+                    },function(){
+                        $(this).find('img:eq(1)').fadeOut();
+                })
+            });
+        </script>
+        <style>
+            img
+            {
+                width:400px;
+                height:300px;
+            }
+            #fader
+            {
+                position:absolute;
+            }
+            #fader .to
+            {
+                display:none;
+                position:absolute;
+                left:0;
+            }
+        </style>
+    </head>
+    <body>
+        <span id="fader">
+            <img src="/Images/Fish.jpg" alt="Image 1">
+            <img class="to" src="/Images/Tiger.jpg" alt="img 2">
+        </span>
+    </body>
+</html>

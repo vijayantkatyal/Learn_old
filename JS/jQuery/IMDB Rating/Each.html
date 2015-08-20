@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="Scripts/jquery.js"></script>
+        <script type="text/javascript" src="Scripts/jquery.hovercard.js"></script>
+        <script>
+            $(function(){
+
+                $(".movie").click(function(){
+                    alert($(this).attr('id'));
+                    
+                    $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?screen_name='+$(this).attr('id')+'&callback?',
+                    function(data){
+                         //alert(data.Title)
+                         //alert(data.Title+data.Year+data.Rating+data.Poster+data.Runtime+data.ID);
+                         console.log(data.followers_count);
+                    });
+                    
+                });
+            });
+        </script>
+        
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li class="movie" id="vijayantkatyal">Vijayant Katyal</li>
+                <li class="movie" id="tt1375666">Inception</li>
+            </ul>
+        </div>
+        <span class="movie" id="codeplex">Movie 3</span>
+        
+        
+        
+        <br><br><br><br><br><br>
+        <div id="data"></div>
+    </body>
+</html>

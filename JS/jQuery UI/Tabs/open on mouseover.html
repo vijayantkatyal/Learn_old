@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $("#tabs").tabs
+                ({
+                    event:"mouseover"
+                });  
+            });
+        </script>
+    </head>
+    <body>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Tab 1</a></li>
+                <li><a href="#tabs-2">Tab 2</a></li>
+                <li><a href="#tabs-3">Tab 3</a></li>
+            </ul>
+            <div id="tabs-1">
+                <p>Content of Tab 1</p>
+            </div>
+            <div id="tabs-2">
+                <p>Content of Tab 2</p>
+            </div>
+            <div id="tabs-3">
+                <p>Content of Tab 3</p>
+            </div>
+        </div>
+    </body>
+</html>

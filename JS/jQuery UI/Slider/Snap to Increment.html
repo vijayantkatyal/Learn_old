@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $('#slider').slider({
+                    value:100,
+                    min:0,
+                    max:500,
+                    step:50,
+                    slide:function(event,ui){
+                        $('#amount').val('$'+ui.value);
+                        }
+                });
+                $('#amount').val('$'+$('#slider').slider('value'));
+            });
+        </script>
+        <style>
+            	#demo-frame > div.demo { padding: 10px !important; }
+        </style>
+    </head>
+    <body>
+        <p>
+            <label for="amount">Donation amount ($50 increments): </label>
+            <input type="text" id="amount" style="border:0;color:#f6913f;font-weight:bold;">
+        </p>
+        <div id="slider"></div>
+    </body>
+</html>

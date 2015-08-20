@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="js/lib/mocha.js"></script>
+    <script src="js/lib/chai.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script>expect = chai.expect</script>
+    <script src="js/test/example.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>

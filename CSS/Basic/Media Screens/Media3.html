@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <title>A Responsive Layout with a Scaled Image</title>
+  <link rel="stylesheet" href="main.css" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1" /> 
+
+  <style>
+
+    .photo {
+      float: right;
+      margin: .4em 0 10px 10px;
+      border: 10px solid rgba(0,0,0,.1);
+      max-width: 65%;
+    }
+
+
+    /* If the viewport width <= 1000 pixels ... */
+
+    @media screen and (max-width: 1000px) {
+
+      /* Make the main content a bit wider */
+
+      #content {
+        width: 75%;
+      }
+
+      /* Put the nav on top of the sidebar */
+
+      #nav, #sidebar {
+        width: 25%;
+      }
+
+      /* Adjust the sidebar margins */
+
+      #sidebar .inner {
+        margin-right: 0;
+        margin-top: 20px;
+      }
+
+    }
+
+
+    /* If the viewport width <= 700 pixels ... */
+
+    @media screen and (max-width: 700px) {
+
+      /* Make the main content fill the viewport width */
+
+      #content {
+        width: 100%;
+      }
+
+      /* Remove the main content right margin */
+
+      #content .inner {
+        margin-right: 0; 
+      }
+
+      /* Put the nav above the main content */
+
+      #nav {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      /* Place the nav items side by side */
+
+      #nav li {
+        float: left;
+        width: 24%;
+        border-bottom: none;
+        border-right: 1px solid rgba(255,255,255,.5);
+      }
+
+      #nav li:last-child {
+        width: 27%;
+        border-right: none;
+      }
+
+      #nav a {
+        text-align: center;
+        padding-left: 0;
+      }
+
+      /* Place the sidebar below the main content */
+
+      #sidebar {
+        float: none;
+        clear: both;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+    }
+
+
+    /* If the viewport width <= 480 pixels ... */
+
+    @media screen and (max-width: 480px) {
+
+      body {
+        margin: 0;
+      }
+
+      #header .inner {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      
+      #header .inner, #content, #nav, #sidebar {
+        margin-bottom: 5px;
+      }
+
+      #nav ul {
+        padding: 5px 7px;
+      }
+
+      .photo {
+        border: none;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div id="header">
+    <div class="inner">
+      <h2>Header <a href="http://www.elated.com/articles/responsive-web-design-5-handy-tips/">Back to Tutorial</a></h2>
+    </div>
+  </div>
+
+  <div id="pageBody">
+
+    <div id="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Store</a></li>
+        <li><a href="#">Friends</a></li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <div class="inner">
+
+        <h1>Responsive Layout</h1>
+
+        <img src="photo.jpg" alt="Flowers" class="photo" />
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Curabitur et leo dui, eu semper tellus. Vivamus aliquam, mi ultrices fringilla varius, augue nisl tincidunt elit, eu tincidunt ante metus ac mauris. Praesent congue blandit nunc, eu facilisis ligula faucibus sit amet. Proin eget turpis nulla. Phasellus mattis nisi a ante aliquet posuere. Vestibulum tortor quam, luctus imperdiet venenatis nec, molestie eu massa. Vivamus nec ipsum viverra augue aliquet bibendum. Morbi ac felis purus, sed vehicula mauris. Integer tempor mollis libero id hendrerit. Fusce sit amet urna quis justo varius pulvinar dapibus sed metus.
+
+        <p>Ut vel mauris eu velit fringilla lobortis. Phasellus accumsan sem in nisl luctus gravida. Vestibulum vitae scelerisque eros. Nullam id leo erat, et congue elit. Nunc volutpat justo tempor magna pretium adipiscing. Vivamus eget massa odio. Suspendisse potenti. Aliquam erat volutpat. Proin faucibus leo vel sem lobortis sed hendrerit diam suscipit. Maecenas dignissim, neque sit amet tristique pulvinar, ipsum orci porttitor odio, ac auctor nunc mauris ac nisi. Sed vitae dui et urna mollis elementum et id purus. Suspendisse bibendum quam id lacus condimentum ut pharetra orci mollis. Curabitur et consequat nisi. Suspendisse dictum luctus neque, id tincidunt justo rutrum non. Aenean fringilla quam ac magna ornare vehicula.</p>
+
+      </div>
+    </div>
+
+    <div id="sidebar">
+      <div class="inner">
+
+        <h2>Sidebar</h2>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Morbi ac felis purus, sed vehicula mauris.</p>
+
+        <h2>Contact Us</h2>
+        <p>Morbi ac felis purus, sed vehicula mauris.</p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div class="inner">
+      <h3>Footer</h3>
+    </div>
+  </div>
+
+
+</body>
+</html>

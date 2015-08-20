@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            // Fade In
+            $(function()
+            {
+                $('#show').click(function()
+                {
+                    $('#disclaimer').fadeIn(1000);
+                });
+            });
+
+            // Fade Out
+            $(function()
+            {
+                $('#hide').click(function()
+                {
+                    $('#disclaimer').fadeOut();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="disclaimer">
+            This is Disclaimer
+        </div>
+        <input type="button" id="show" value="Show">
+        <input type="button" id="hide" value="Hide">
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function() {
+            var searchTerm = "celebs";
+var baseUrl = "http://search.twitter.com/search.json?q=";
+$.getJSON(baseUrl + searchTerm + "&callback=?", function(data) {
+$.each(data.results, function() {
+$('<div></div>')
+.hide()
+.append('<img src="' + this.profile_image_url + '" />')
+.append('<span><a href="http://www.twitter.com/'
++
+this.from_user + '">' + this.from_user
++
+'</a>&nbsp;' + this.text + '</span>')
+.appendTo('#tweets')
+.fadeIn();
+});
+            });
+        </script>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

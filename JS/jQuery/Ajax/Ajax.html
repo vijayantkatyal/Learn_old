@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function(){
+                var link='test.html';
+                $.ajax({
+                    url: link,
+                error: function() {
+                    $('#status').text('Un Available');},
+                success: function() {
+                    $('#status').text('Data Loaded');
+                    $('#description').load(link);}
+                    });
+                });
+        </script>
+    </head>
+    <body>
+        <div id="status"></div>
+        <div id="description"></div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "name": "package 1",
+    "version": "0.1.0",
+    "description": "New JavaScript Package",
+    "categories": [
+        "Console"
+    ],
+    "dependencies": {
+        "express": "3.x"
+    },
+    "author": {
+        "name": "Vijayant Katyal"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jquery/jquery.git"
+    },
+    "bugs": {
+        "web": "http://bugs.jquery.com"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://jquery.com/blob/master/MIT-LICENSE.txt"
+        },
+        {
+            "type": "GPL",
+            "url": "http://jquery.com/blob/master/GPL-LICENSE.txt"
+        }
+    ],
+    "main": "main.js"
+}

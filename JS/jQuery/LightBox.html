@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="../Scripts/jquery-1.7.1.js"></script>
+        <script>
+$('a.lightbox').click(function(e) {
+// hide scrollbars!
+$('body').css('overflow-y', 'hidden');
+$('<div id="overlay"></div>')
+.css('top', $(document).scrollTop())
+.css('opacity', '0')
+.animate({'opacity': '0.5'}, 'slow')
+.appendTo('body');
+$('<div id="lightbox"></div>')
+.hide()
+.appendTo('body');
+$('<img />')
+.attr('src', $(this).attr('href'))
+.load(function() {
+positionLightboxImage();
+})
+.click(function() {
+removeLightbox();
+})
+.appendTo('#lightbox');
+return false;
+});
+        </script>
+        <style>
+            #lightbox_overlay
+            {
+                position:absolute;
+                top:0;
+                left:0;
+                height:100%;
+                width:100%;
+                background:black url(loading.gif) no-repeat scroll center center;
+            }
+            #lightbox_container
+            {
+                position:absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#" class="lightbox">Pic</a>
+    </body>
+</html>

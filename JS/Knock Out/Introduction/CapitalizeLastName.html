@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/knockout.js"></script>
+        <script>
+            function myModel()
+            {
+                this.lastname = ko.observable("Katyal");
+
+                this.capitalizename = function()
+                {
+                    var currentval = this.lastname();         // Read Current Value
+                    this.lastname(currentval.toUpperCase());  // Write back a modified value
+                };
+            }
+        </script>
+    </head>
+    <body>
+        Last Name: <input type="text" data-bind="value: lastname"><br>
+        Last Name: <span data-bind="text: lastname"></span><br><br>
+        <input type="button" value="Capitalize Name" data-bind="click: capitalizename">
+        
+        <script>
+            ko.applyBindings(new myModel());
+        </script>
+    </body>
+</html>

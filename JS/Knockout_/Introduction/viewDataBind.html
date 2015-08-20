@@ -1,0 +1,15 @@
+<script src="../Scripts/knockout.js" type="text/javascript"></script>
+<h1>Data Bind to View </h1>
+
+<p>First Name: <b data-bind="text: firstname"></b>
+
+<p>Last Name: <b data-bind="text: lastname"></b></p>
+
+<script type="text/javascript">
+	function AppViewModel(){
+		this.firstname = "Vijayant";
+		this.lastname = "Katyal";
+	}
+
+	ko.applyBindings(new AppViewModel());
+</script>

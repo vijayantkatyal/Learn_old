@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+        <script>
+            $(function(){
+                $('#draggable').draggable({cursor:"move", cursorAt:{top:56,left:56}});
+                $('#draggable2').draggable({cursor:'cross',cursorAt:{top:-5,left:-5}});
+                $('#draggable3').draggable({cursorAt:{bottom:0}});
+            });
+        </script>
+        <style>
+            #draggable,#draggable2,#draggable3
+            {
+                width:100px;
+                height:100px;
+                padding:0.5em;
+                float:left;
+                margin:0 10px 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="draggable" class="ui-widget-content">
+            <p>I Will always tick to center</p>
+        </div>
+        <div id="draggable2" class="ui-widget-content">
+            <p>My Cursor is at left -5 and top -5</p>
+        </div>
+        <div id="draggable3" class="ui-widget-content">
+            <p>My Cursor posisition is controlled for botom value</p>
+        </div>
+    </body>
+</html>

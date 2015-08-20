@@ -1,0 +1,52 @@
+.bordered{ // visible to css output
+	border-top: dotted 1px black;
+	border-bottom: solid 2px black;
+}
+
+div{
+	color: grey;
+	.bordered
+}
+
+// Parametric Mixins
+
+.border-radius(@radius){
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius:@radius;
+}
+
+.border-radius(@radius : 5px){ // with default value
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius:@radius;
+}
+
+span{
+	border: 1px solid #000;
+	.border-radius(15px); // pass parameters to class
+	.border-radius; // without parameters
+}
+
+.big(){ // will be hidden from css output
+	color:grey;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+h3{
+	.big
+}
+
+// Multi Paramter Mixin
+
+.mixin(@color;@padding;@margin){
+	color: @color;
+	padding: @padding;
+	margin:@margin;
+	// margin: @arguments; // list all above arguments
+}
+
+h4{
+	.mixin(pink,10px,20px);
+}

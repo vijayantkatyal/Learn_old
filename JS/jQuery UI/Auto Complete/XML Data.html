@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+        
+        <script>
+            $(function(){
+                function log( message ) {
+			        $( "<div/>" ).text( message ).prependTo( "#log" );
+			        $( "#log" ).scrollTop( 0 );
+		        }
+
+		        $.ajax({
+			        url: "london.xml",
+			        dataType: "xml",
+			        success: function( xmlResponse ) {
+				    var data = $( "geoname", xmlResponse ).map(function() {
+					    return {
+    						value: $( "name", this ).text() + ", " +
+							( $.trim( $( "countryName", this ).text() ) || "(unknown country)" ),
+						    id: $( "geonameId", this ).text()
+					};
+				    }).get();
+				    $( "#birds" ).autocomplete({
+					    source: data,
+					    minLength: 0,
+					    select: function( event, ui ) {
+    						log( ui.item ?
+							"Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+							"Nothing selected, input was " + this.value );
+					}
+	    			        });
+		    	        }
+		            });
+                });
+        </script>
+    </head>
+    <body>
+        <div class="ui-widget">
+            <label for="birds">London matches: </label>
+            <input id="birds">
+        </div>
+        
+        <div class="ui-widget" style="margin-top:2em;font-family:Arial;">
+            Result:
+            <div id="log" style="height:200px;width:300px;overflow:auto;" class="ui-widget-content">
+                
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+*{
+    font-style:italic;
+}
+
+body 
+{
+    color:black;
+}
+
+/* Points to div (class=box) */
+div.box
+{
+    padding:20px 20px 20px 20px;
+    border:1px solid black;
+    opacity:0.5;
+    color:#ff006e;
+    background-color:black;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    color:#f00;
+}
+
+p.alert
+{
+    color:#4cff00;
+}
+
+.highlight
+{
+    color:Blue !important;
+}
+
+#highlight
+{
+    color:yellow;
+}
+
+#highlight.h
+{
+    color:#f00;
+}
+
+p[car]
+{
+    color:DarkOrange;
+}

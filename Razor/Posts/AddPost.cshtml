@@ -1,0 +1,105 @@
+﻿@{
+    var title = Request["Title"];
+    var summary = Request["Summary"];
+    var body = Request["Body"];
+    var pubdate = Request["PubDate"];
+
+    if(IsPost)
+    {
+        if(title.IsEmpty())
+        {
+            ModelState.AddError("Title","Post Title Cannot be Empty");
+        }
+        if(summary.IsEmpty())
+        {
+            ModelState.AddError("Summary","Summary cannot be Empty");
+        }
+        if(pubdate.IsEmpty())
+        {
+            ModelState.AddError("PubDate","Date Cannot be Empty");
+        }
+        
+    }
+    
+    if(IsPost && ModelState.IsValid)
+     {
+         Database.Open("Blog")
+         .Execute("INSERT INTO Posts (Title, Summary, Body, PublicationDate)" +
+         "VALUES(@0,@1,@2,@3)",
+         title,summary,body,pubdate);
+        
+            <fieldset>
+                <legend>Posted Values: </legend>
+                
+                <p>
+                    <label>Title: </label>
+                    <span>@title</span>
+                </p>
+                
+                <p>
+                    <label>Summary: </label>
+                    <span>@summary</span>
+                </p>
+                
+                <p><label>Body: </label></p>
+                <p><div>@body</div></p>
+            </fieldset>
+     }
+}
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <form method="post" action="">
+            
+            
+            
+            <fieldset>
+                <legend>New Blog Post</legend>
+            
+                <div> 
+                    
+                    <label for="Title">Title</label>
+                    <input type="text" name="Title" value="@title"/>
+                    @Html.ValidationMessage("Title","*")
+                </div>
+            
+                <div>
+                    <label for="Summary">Summary</label>
+                    <input type="text" name="Summary" value="@summary"/>
+                    @Html.ValidationMessage("Summary","*")
+                </div>
+            
+                <div>
+                    <p><label for="Body">Body</label></p>
+                    <textarea cols="40" rows="10" name="Body">@body</textarea>
+                </div>
+                
+                <div>
+                    <p><label for="PublicationDate">Publication Date</label></p>
+                    <input type="datetime" name="PubDate" value="@pubdate"/>
+                    @Html.ValidationMessage("PubDate","*")
+                </div>
+                <div>
+                    <button type="submit">Add Post</button>
+                </div>
+            
+            </fieldset>  
+                  
+            <div class="validation-summary-error">
+                <ul>
+                    <li>Post Title Cannot be Empty</li>
+                    <li>Post summary cannot be Empty</li>
+                    <li>Post body cannot be Empty</li>
+                </ul>
+            </div>
+        </form>
+    </body>
+</html>

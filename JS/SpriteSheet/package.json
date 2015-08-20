@@ -1,0 +1,10 @@
+{
+	"name":"SpriteSheet",
+	"devDependencies":{
+		"grunt":"latest",
+		"spritesmith":"latest",
+		"spritesheetjs":"latest",
+		"grunt-spritesmith":"latest",
+		"gm":"latest"
+	}
+}

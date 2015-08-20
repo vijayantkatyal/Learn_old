@@ -1,0 +1,26 @@
+<h1>Computed</h1>
+<script src="../Scripts/knockout.js" type="text/javascript"></script>
+
+
+<div>
+    <p>First Name: <b data-bind="text: firstname"></b></p>
+    <p>Last Name: <b data-bind="text: lastname"></b></p>
+    <p>Full Name: <b data-bind="text: fullname"></b></p>
+</div>
+
+<div>
+    <p>First Name: <input type="text" data-bind="value: firstname"/></p>
+    <p>Last Name: <input type="text" data-bind="value: lastname"/></p>
+</div>
+
+<script>
+    function AppViewModel() {
+        this.firstname = ko.observable("Vijayant");
+        this.lastname = ko.observable("Katyal");
+        this.fullname = ko.computed(function() {
+            return this.firstname() + " " + this.lastname();
+        },this);
+    }
+
+    ko.applyBindings(new AppViewModel());
+</script>

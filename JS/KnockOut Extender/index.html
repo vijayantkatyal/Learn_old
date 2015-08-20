@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>KnockOut</title>
+</head>
+<body>
+	<p data-bind="text: name"></p>
+	<input type="text" data-bind="value: name">
+
+	<p data-bind="text: number"></p>
+	<input type="text" data-bind="value: number">
+
+	<p data-bind="text: description"></p>
+	<input type="text" data-bind="value: description">
+
+	<p data-bind="css: { error: age.hasError }">
+		<input data-bind="value: age"/>
+		<span data-bind="visible: age.hasError, text: age.validationMessage"></span>
+	</p>
+</body>
+	<script type="text/javascript" src="scripts/lib/knockout.js"></script>
+	<script type="text/javascript" src="scripts/extender.js"></script>
+</html>

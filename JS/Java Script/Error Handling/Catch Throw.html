@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script>
+            var x = prompt("Enter a number between 5 and 10");
+            try
+            {
+                if(x>10)
+                {
+                    throw "Err1";
+                }
+                else if(x<5)
+                {
+                    throw "Err2";
+                }
+            }
+            catch(err)
+            {
+                if(err=="Err1")
+                {
+                    document.write("Error value is to high");
+                }
+                if(err=="Err2")
+                {
+                    document.write("Error value is too low");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,17 @@
+.mixin(dark;@color){
+	color: darkern(@color,10%);
+}
+
+.mixin(light;@color){
+	color: lighten(@color,10%);
+}
+
+.mixin(@_;@color){ // @_ means any value
+	display: block;
+}
+
+@switch: light;
+
+h1{
+	.mixin(@switch,#888);
+}

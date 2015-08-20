@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function ()
+            {
+                // Hide Disclaimer
+                $('#hideButton').click(function()
+                {
+                    $('#disclaimer').hide(); // hide Div
+                    // $(this).hide(); // hide Button
+                });
+                // Show Disclaimer
+                $('#showButton').click(function()
+                {
+                    $('#disclaimer').show(); // show div
+                });
+                // Hide and Show Button
+                /*
+                $('#toggleButton').click(function ()
+                {
+                    if($('#disclaimer').is(':visible'))
+                    {
+                        $('#disclaimer').hide();
+                    }
+                    else
+                    {
+                        $('#disclaimer').show();
+                    }
+                });
+                */
+                $('#toggleButton').click(function ()
+                {
+                    $('#diclaimer').toggle();
+                    
+                    if($('#disclaimer').is(':visible'))                   
+                    {
+                        $(this).val('Hide');
+                    }
+                    else
+                    {
+                        $(this).val('Show');
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="disclaimer">
+            This is disclaimer
+        </div>
+        <input type="button" id="hideButton" value="Hide">
+        <input type="button" id="showButton" value="Show">
+        <input type="button" id="toggleButton" value="toggle">
+    </body>
+</html>

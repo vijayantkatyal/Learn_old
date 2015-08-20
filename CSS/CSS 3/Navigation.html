@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            body
+            {
+                background-color:#000;
+            }
+            #nav
+            {
+                float:right;
+                padding:42px 0 0 30px;
+            }
+            #nav li
+            {
+                float:left;
+                margin:0 0 0 5px;
+                list-style:none;
+            }
+            #nav li a
+            {
+                padding:5px 15px;
+                font-weight:bold;
+                color:#ccc;
+                color:rgba(255,255,255,0.7);
+                text-shadow:0 1px 1px 1px rgba(0,0,0,0.5);
+                border-radius:14px;
+                transition:all 0.3s ease-in-out;
+                text-decoration:none;
+                list-style:none;
+                
+                -webkit-transition:all 0.3s ease-in-out;
+                -moz-transition:all 0.3s ease-in-out;
+                
+                -webkit-border-radius:14px;
+                -moz-border-radius:14px;
+            }
+            #nav li a:hover,#nav li a:focus
+            {
+                color:#fff;
+                background:rgba(255,255,255,0.15);
+                list-style:none;
+            }
+            
+            #footer-logos
+            {
+                text-align:center;
+                float:right;
+                padding:442px 0 0 30px;
+            }
+            #footer-logo li
+            {
+                list-style:none;
+            }
+            #footer-logos a img
+            {
+                opacity:0.25;
+                border:none;
+                opacity:0.25;
+                -ms-filter:"progid:DXImageTransform.Microsoft.Aplha(Opacity=25)";
+                filter:alpha(opacity=25);
+                transition:opacity 0.2s ease-in-out;
+                -webkit-transition:opacity 0.2s ease-in-out;
+                
+            }
+            
+            #footer-logos a:hover img,#footer-logos a:focus img
+            {
+                opacity:0.6;
+                -ms-filter:"progid:DXImageTransform.Microsoft.Aplha(Opacity=60)";
+                filter:alpha(opacity=60);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul id="nav">
+                <li><a href="#">News</a></li>
+                <li><a href="#">Things</a></li>
+                <li><a href="#">Stuff</a></li>
+                <li><a href="#">Junk</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        
+        <div>
+            <ul id="footer-logos">
+                <li><a href="#"><img src="Images/1.png" alt="SimpleBits logo"/></a></li>
+                <li><a href="#"><img src="Images/2.png" alt="RSS Feed"/></a></li>
+                <li><a href="#"><img src="Images/3.png" alt="BitMan"/></a></li>
+            </ul>
+        </div>
+    </body>
+</html>

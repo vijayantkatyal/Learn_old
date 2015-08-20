@@ -1,0 +1,38 @@
+// String interpolation
+
+@base-url: "http://assets.fnord.com";
+background-image: url("@{base-url}/images/bg.png");
+
+// Escaping
+
+.class{
+	filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+}
+
+// Selector interpolation
+
+@name: blocked;
+
+.@{name} {
+	color: black;
+}
+
+// Media Queries
+
+@singleQuery: ~"(max-width: 500px)";
+
+@media screen, @singleQuery{
+	set{
+		padding: 3 3 3 3;
+	}
+}
+
+// Javascript interpolation
+
+@var: `"hello".toUpperCase() + '!'`;
+
+// data URI
+h1{
+	// data-uri('image/jpeg;base64', '../data/image.jpg');
+	// data-uri('../data/image.jpg');
+}

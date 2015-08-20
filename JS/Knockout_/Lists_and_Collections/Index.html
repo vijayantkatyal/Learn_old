@@ -1,0 +1,77 @@
+<script src="../Scripts/knockout.js" type="text/javascript"></script>
+
+<h1>Seat Reservation System (<b data-bind="text: seats().length"></b>)</h1>
+
+<button data-bind="click: addmeal, enable: seats().length< 5">Add Meal</button>
+<br><br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Meal</th>
+            <th>Surcharge</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: seats">
+        <tr>
+            <td><input type="text" data-bind="value: name"/></td>
+            <td><select data-bind="options: $root.availableMeals,value: meal, optionsText: 'mealName'"></select></td>
+            <td data-bind="text: formattedprice"></td>
+            <td><a href="#" data-bind="click: $root.removeseat">Remove</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<b data-bind="visible: totalsurcharge() > 0">
+    Total Surcharge : $<span data-bind="text: totalsurcharge()"></span>
+</b>
+
+<script>
+    // class to represent data
+    function seatReservation(name, initialMeal) {
+        var self = this;
+        self.name = name;
+        self.meal = ko.observable(initialMeal);
+
+        self.formattedprice = ko.computed(function() {
+            var price = self.meal().price;
+            return price ? "$" + price.toFixed(2) : "None";
+        });
+    }
+
+    // Overall viewmodel + initial data
+    function ReservationViewModel() {
+        var self = this;
+
+        self.availableMeals = [
+            { mealName: "Sandwich", price: 10 },
+            { mealName: "Lobster", price: 110 }
+        ];
+
+
+        // Editable data
+        self.seats = ko.observableArray([
+            new seatReservation("Steve", self.availableMeals[0]),
+            new seatReservation("Bert", self.availableMeals[1])
+        ]);
+
+        self.totalsurcharge = ko.computed(function() {
+            var total = 0;
+            for (var i = 0; i < self.seats().length; i++)
+                total += self.seats()[i].meal().price;
+            return total;
+        }); 
+
+        self.addmeal = function() {
+            self.seats.push(new seatReservation("New", self.availableMeals[0]));
+        }
+
+        self.removeseat = function(seat) {
+            self.seats.remove(seat)
+        }
+    }
+
+    ko.applyBindings(new ReservationViewModel());
+</script>

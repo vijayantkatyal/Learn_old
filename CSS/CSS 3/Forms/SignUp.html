@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            #thing-alerts
+            {
+                background-color:#000;
+            }
+            #thing-alerts fieldset
+            {
+                margin:0 0 10px 0;
+            }    
+            #thing-alerts fieldset label
+            {
+                display:block;
+                font-weight:bold;
+                line-height:1.4;
+                color:#666;
+                color:rgba(0,0,0,0.6);
+                text-shadow:0 1px 1px #fff;
+            }
+            #thing-alerts fieldset:last-child
+            {
+                margin:0;
+            }
+            #thing-alerts fieldset input[type="text"]
+            {
+                width:215px;
+                padding:5px 8px;
+                font-size:1.2em;
+                color:#666;
+                border:none;
+                background-image:-webkit-gradient(linear, 0% 0%, 0% 12%, from(#999), to(#fff));
+                background-color:#fff;
+                border-radius:4px;
+            }
+            #thing-alerts input[type="text"]:focus
+            {
+                box-shadow:0 0 12px rgba(51,204,255,0.5);
+            }
+            #thing-alerts input[type="submit"]
+            {
+                padding:8px 15px;
+                font-family:Helvetica,Arial,sans-serif;
+                font-weight:bold;
+                line-height:1;
+                color:#444;
+                border:none;
+                text-shadow:0 1px 1px rgba(255,255,255,0.8);
+                background-image: -webkit-gradient(linear,0% 0%, 0% 100%, from(#fff), to(#bbb));
+                background-color:#fff;
+                border-radius:23px;
+                box-shadow:0 1px 2px rgba(0,0,0,0.5);
+            }
+            #thing-alerts input[type="text"]:hover 
+            {
+                -webkit-animation-name: pulse;
+                -webkit-animation-duration: 1.5s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: ease-in-out;
+            }
+            
+            @-webkit-keyframes pulse 
+            {
+                0%
+                {
+                    box-shadow: 0 0 12px rgba(51, 204, 255, 0.2);
+                }
+                50% 
+                {
+                    box-shadow: 0 0 12px rgba(51, 204, 255, 0.9);
+                }
+                100% 
+                {
+                    box-shadow: 0 0 12px rgba(51, 204, 255, 0.2);
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <form action="/" id="thing-alerts">
+            <fieldset>
+                <label for="alerts-name">Your Name</label>
+                <input type="text" id="alerts-name"/>
+            </fieldset>
+            
+            <fieldset>
+                <label for="alerts-email">Your Email</label>
+                <input type="text" id="alerts-email"/>
+            </fieldset>
+            
+            <fieldset>
+                <input type="submit" value="Subscribe"/>
+            </fieldset>
+        </form>
+    </body>
+</html>

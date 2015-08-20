@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function()
+            {
+                function addNotice(notice) {
+                    $('<div class="notice"></div>')
+                    .append('<div class="skin"></div>')
+                    .append('<a href="#" class="close">close</a>')
+                    .append($('<div class="content"></div>').html($(notice)))
+                    .hide()
+                    .appendTo('#growl')
+                    .fadeIn(1000);}
+            });
+        </script>
+        <style>
+            #growl 
+            {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 320px;
+                z-index: 10;
+            }
+            .notice 
+            {
+                position: relative;
+            }
+            .skin 
+            {
+                position: absolute;
+                background-color: #000000;
+                bottom: 0;
+                left: 0;
+                opacity: 0.6;
+                right: 0;
+                top: 0;
+                z-index: -1;
+                -moz-border-radius: 5px; -webkit-border-radius: 5px;
+            }
+            .close 
+            {
+                background: transparent url('button-close.png') 0 0 no-repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="growl"></div>
+    </body>
+</html>

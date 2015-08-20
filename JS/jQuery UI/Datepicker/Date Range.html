@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                var dates = $('#from,#to').datepicker
+                ({
+                    defaultDate:'+1w',
+                    changeMonth:true,
+                    numberOfMonths:3,
+                    onSelect:function (selectedDate)
+                    {
+                        var option=this.id=='from'?'minDate':'maxDate',
+                        instance=$(this).data('datepicker'),
+                        date = $.datepicker.parseDate(
+                        instance.settings.dateFormat || $.datepicker._defaults.dateFormat,selectedDate,instance.settings );
+                        dates.not(this).datepicker('option',option,date);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <label for="from">From</label>
+        <input type="text" id="from" name="from">
+        <label for="to">to</label>
+        <input type="text" id="to" name="to">
+    </body>
+</html>

@@ -1,0 +1,10 @@
+﻿@{
+    var post = Page.Post;
+    var url = "http://localhost:40572/Posts/Post.cshtml?id="+post.ID;
+}
+
+<div>
+    <h3><a href="@url">@post.Title</a></h3>
+    <div>@post.Body</div>
+    @TwitterHelpers.TweetButton(url:url,text:@post.Body)
+</div>

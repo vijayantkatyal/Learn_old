@@ -1,0 +1,7 @@
+{
+	"name":"Grunt",
+	"devDependencies":{
+		"grunt":"latest",
+		"grunt-contrib-concat": "~0.1.1"
+	}
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function(){
+                // Load Full Page
+                /*
+                $('#biographies a').click(function(e) {
+                    var url = $(this).attr('href');
+                    $('#biography').load(url);
+                    e.preventDefault();
+                });
+                */
+
+                // Load Some Selectors
+                 $('#biographies a').click(function(e) {
+                    var url = $(this).attr('href') +' #description';
+                    $('#biography').html('loading...').load(url);
+                    e.preventDefault();
+                });
+                 $('#description').live('mouseover',function(){
+                    $(this).css('background-color','yellow');
+                    });
+                 //$('p#description').die('mouseover');
+            });
+        </script>
+    </head>
+    <body>
+        <ul id="biographies">
+            <li><a href="Eminem.html">Eminem</a></li>
+            <li><a href="50Cent.html">50 Cent</a></li>
+        </ul>
+        <div id="biography">
+            Click on a celeb above to found out more !
+        </div>
+    </body>
+</html>

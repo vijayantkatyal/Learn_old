@@ -1,0 +1,11 @@
+﻿@{
+    var db=Database.Open("Blog");
+    var post = db.QuerySingle("SELECT ID,Title,Body FROM Posts WHERE ID=@0",Request["id"]);
+}
+
+@section Header
+{
+    @post.Title
+}
+
+@RenderPage("_Posts.cshtml",new {Post = post})

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Blog : @Page.Title</title>
+        <style>
+            body{background-color:#000;color:#fff;}
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>@RenderSection("Header")</h1>
+        </div>
+        
+        @RenderBody()
+
+        
+        @if(IsSectionDefined("Footer"))
+        {
+            <div class="footer" style="text-align:center;color:#af9482;">
+                @RenderSection("Footer",required: false)
+            </div>
+        }
+    </body>
+</html>

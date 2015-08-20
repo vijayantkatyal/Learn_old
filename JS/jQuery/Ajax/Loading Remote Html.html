@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function()
+            {
+                $('#load').click(function load()
+                {
+                    $('div:first').load('test.html');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" id="load" onclick="load()" value="Load">
+        <div></div>
+    </body>
+</html>

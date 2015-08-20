@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+        <script>
+	        $.widget( "custom.catcomplete", $.ui.autocomplete, {
+		        _renderMenu: function( ul, items ) {
+			        var self = this,
+				    currentCategory = "";
+			        $.each( items, function( index, item ) {
+			if ( item.category != currentCategory ) {
+					ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+					currentCategory = item.category;
+			}
+			self._renderItem( ul, item );
+			    });
+		    }
+	        });	
+        </script>
+
+        <script>
+            $(function(){
+                var data = [
+                    {label: "anderns", category:""},
+                    {label: "andreas", category:""},
+                    {label:"annhx10",category:"Product"},
+                    {label:"andreas andreason",category:"People"}
+                ];
+
+                $('#search').catcomplete
+                ({
+                    delay:0,
+                    source:data
+                })
+            });
+        </script>
+        <style>
+	    .ui-autocomplete-category 
+        {
+		    font-weight: bold;
+		    padding: .2em .4em;
+		    margin: .8em 0 .2em;
+		    line-height: 1.5;
+	    }
+	</style>
+    </head>
+    <body>
+        <label for="search">Search: </label>
+        <input id="search">
+    </body>
+</html>

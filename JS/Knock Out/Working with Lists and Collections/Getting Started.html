@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/knockout.js"></script>
+        <script>
+            // Class to represnt a row in seat reservations grid
+            function seatreservation(name,initialmeal)
+            {
+                var self = this;
+                self.name = name;
+                self.meal = ko.observable(initialmeal);
+            }
+
+            // Overall viewmodel for this screen, along with initial state
+            function reservationviewmodel()
+            {
+                var self = this;
+
+                // non-editable data - would come from server
+                self.availablemeals = 
+                [
+                    { mealname: "Standard (Sandwich)", price: 5},
+                    { mealname: "Premium (lobster)", price: 34.95},
+                    { mealname: "Ultimate (whole zebra)", price: 89.49}
+                ];
+
+                // editable data
+                self.seats = ko.observableArray
+                ([
+                    new seatreservation("Steve",self.availablemeals[0]),
+                    new seatreservation("Bert",self.availablemeals[1])
+                ]);
+
+                self.addseat = function()
+                {
+                    self.seats.push(new seatreservation("New",self.availablemeals[2]));
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+        <h2>Your Seat Reservations</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Meal</th>
+                    <th>Surcharge</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: seats">
+                <tr>
+                    <td data-bind="text: name"></td>
+                    <td data-bind="text: meal().mealname"></td>
+                    <td data-bind="text: meal().price"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button data-bind="click: addseat">Add New</button>
+        <script>
+            ko.applyBindings(new reservationviewmodel());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+        <script>
+            $(function(){
+                $('#sortable').sortable({revert:true});
+                $('#draggable').draggable({connectToSortable:'#sortable',helper:'clone',revert:'invalid'});
+                $('ul,li').disableSelection();
+            });
+        </script>
+        <style>
+            ul
+            {
+                list-style:none;
+                margin:0;
+                padding:0;
+                margin-bottom:10px;
+            }
+            li
+            {
+                margin:5px;
+                padding:5px;
+                width:150px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li id="draggable" class="ui-state-highlight">Drag Me Around</li>
+        </ul>
+        <ul id="sortable">
+            <li class="ui-state-default">Item 1</li>
+            <li class="ui-state-default">Item 2</li>
+            <li class="ui-state-default">Item 3</li>
+            <li class="ui-state-default">Item 4</li>
+            <li class="ui-state-default">Item 5</li>
+        </ul>
+    </body>
+</html>

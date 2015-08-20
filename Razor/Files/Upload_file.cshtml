@@ -1,0 +1,21 @@
+﻿@{
+    var fileName = "";
+    if(IsPost)
+    {
+        var fileSavePath = "";
+        var uploadFile = Request.Files[0];
+        fileName = Path.GetFileName(uploadFile.FileName);
+        fileSavePath = Server.MapPath("~/images/" + fileName);
+        uploadFile.SaveAs(fileSavePath);
+    }
+}
+
+@FileUpload.GetHtml(
+    initialNumberOfFiles:1,
+    allowMoreFilesToBeAdded:false,
+    includeFormTag:true,
+uploadText:"Upload")
+@if (IsPost)
+{
+    <span>File Uploaded!</span><br/>
+}

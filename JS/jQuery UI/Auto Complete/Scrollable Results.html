@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                var availableTags=[
+                    "ActionScript",
+                    "AppleScript",
+                    "Asp",
+                    "BASIC",
+                    "C",
+                    "C++",
+                    "Clojure",
+                    "COBOL",
+                    "ColdFusion",
+                    "Erlang",
+                    "Fortran",
+                    "Groovy",
+                    "Haskell"
+                ];
+                $('#tags').autocomplete({
+                    source:availableTags
+                });
+            });
+        </script>
+        <style>
+            .ui-autocomplete
+            {
+                max-height:100px;
+                overflow-y:auto;
+                overflow-x:hidden;
+                padding-right:20px;
+            }
+            * html .ui-autocomplete
+            {
+                height:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ui-widget">
+            <label for="tags">Tags: </label>
+            <input id="tags">
+        </div>
+    </body>
+</html>

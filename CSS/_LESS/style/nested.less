@@ -1,0 +1,25 @@
+#header				{ color: black;
+	.navigation		{ font-size: 12px; }
+	.logo			{ width: :300px;
+		&:hover		{ text-decoration: none; }
+	}
+}
+h1	{
+	&.float { color: pink;}
+	.float  { color: orange; }
+}
+
+.one {
+    @media (width: 400px) {
+        font-size: 1.2em;
+        @media print and color {
+            color: blue;
+        }
+    }
+}
+
+.child, .sibling {
+    .parent & {
+        color: black;
+    }
+}

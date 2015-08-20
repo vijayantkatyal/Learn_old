@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $("#tabs").tabs();
+                $(".tabs-bottom .ui-tabs-nav,.tabs-bottom .ui-tabs-nav >*")
+                .removeClass("ui-corner-all ui-corner-top")
+                .addClass("ui-corner-bottom");
+            });
+        </script>
+        <style>
+            #tabs { height: 200px; } 
+	        .tabs-bottom { position: relative; } 
+	        .tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
+	        .tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
+	        .tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
+	        .ui-tabs-selected { margin-top: -3px !important; }
+	    </style>
+
+    </head>
+    <body>
+        <div id="tabs" class="tabs-bottom">
+            <ul>
+                <li><a href="#tabs-1">Tab 1</a></li>
+                <li><a href="#tabs-2">Tab 2</a></li>
+                <li><a href="#tabs-3">Tab 3</a></li>
+            </ul>
+            
+            <div id="tabs-1">
+                <p>Content of Tab 1</p>
+            </div>
+            <div id="tabs-2">
+                <p>Content of Tab 2</p>
+            </div>
+            <div id="tabs-3">
+                <p>Content of Tab 3</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<script src="../Scripts/knockout.js" type="text/javascript"></script>
+<script src="../Scripts/jquery.js" type="text/javascript"></script>
+<script src="../Scripts/sammy.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/start/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+
+<style>
+    table { background-color: #cde; padding: 1em; border-radius: 0.5em; }
+    table th { text-align:left; }
+    table th:last-child { min-width: 130px; }
+
+    .starRating span { width:24px; height:24px; background-image: url(stars.png); display:inline-block; cursor: pointer; background-position: -24px 0; }
+    .starRating span.chosen { background-position: 0 0; }
+    .starRating:hover span { background-position: -24px 0; }
+    .starRating:hover span.hoverChosen { background-position: 0 0; }
+</style>
+
+<h1>Custom Binding Example 1</h1>
+
+<h3 data-bind="text: question"></h3>
+<p>Please Distribute <b data-bind="text: pointsbudget"></b> points between following questions</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Option</th>
+            <th>Importance</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: answers">
+        <tr>
+            <td data-bind="text: answertext"></td>
+            <!--<td>
+                <select data-bind="options: [1,2,3,4,5],value: points"></select>
+            </td>-->
+            <td data-bind="starRating: points"></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 data-bind="fadevisible: pointsused() > pointsbudget">you've used too many points.</h3>
+<p>You've Got <b data-bind="text: pointsbudget - pointsused()"></b> Left to use</p>
+
+<button data-bind="enable: pointsused()<= pointsbudget, click: save">Finished</button>
+
+<script>
+
+    // Reusable Bindings
+
+    ko.bindingHandlers.fadevisible = {
+        init: function(element, valueAccessor) {
+            var shoulddisplay = valueAccessor();
+            $(element).toggle(shoulddisplay);
+        },
+        update: function(element, valueAccessor) {
+            var shouldDisplay = valueAccessor();
+            shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
+        }
+    }
+
+   ko.bindingHandlers.starRating = {
+    init: function(element, valueAccessor) {
+        $(element).addClass("starRating");
+        for (var i = 0; i < 5; i++)
+           $("<span>").appendTo(element);
+       
+        // Handle mouse events on the stars
+        $("span", element).each(function(index) {
+            $(this).hover(
+                function() { $(this).prevAll().add(this).addClass("hoverChosen") }, 
+                function() { $(this).prevAll().add(this).removeClass("hoverChosen") }                
+            ).click(function() { 
+                var observable = valueAccessor();  // Get the associated observable
+                observable(index+1);               // Write the new rating to it
+            });
+        });            
+    },
+    update: function(element, valueAccessor) {
+        // Give the first x stars the "chosen" class, where x <= rating
+        var observable = valueAccessor();
+        $("span", element).each(function(index) {
+            $(this).toggleClass("chosen", index < observable());
+        });
+    }    
+};
+
+
+    function Answer(text) {
+        this.answertext = text;
+        this.points = ko.observable(1);
+    }
+
+    function surveymodel(question, pointsbudget, answers) {
+        this.question = question;
+        this.pointsbudget = pointsbudget;
+        this.answers = $.map(answers, function(text) { return new Answer(text) });
+        this.save = function() { alert("To do") };
+
+        this.pointsused = ko.computed(function() {
+            var total = 0;
+            for(var i = 0; i < this.answers.length; i++)
+                total += this.answers[i].points();
+            return total;
+        }, this);
+
+    }
+
+    ko.applyBindings(new surveymodel("Which factor affects your technology choices?", 10, ["asp.net", "php", "C#", "java script"]));
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/knockout.js"></script>
+        <script>
+            function myModel()
+            {
+                this.personName = ko.observable("Vijayant");
+                this.personAge = ko.observable(21);
+            }
+        </script>
+    </head>
+    <body>
+        <b>Using "text:"</b><br><br>
+        
+        Name: <span data-bind="text: personName"></span><br>
+        Age:  <span data-bind="text: personAge"></span><br>
+        
+        <hr>
+        
+        <b>Using "value: "</b><br><br>
+        
+        Name: <input type="text" data-bind="value: personName"><br>
+        Age:  <input type="text" data-bind="value: personAge">
+        
+        <script>
+            ko.applyBindings(new myModel());
+        </script>
+    </body>
+</html>

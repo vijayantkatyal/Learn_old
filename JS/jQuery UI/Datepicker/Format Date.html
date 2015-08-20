@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $('#datepicker').datepicker();
+                $('#format').change(function()
+                {
+                    $('#datepicker').datepicker("option","dateFormat",$(this).val());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>Date: <input type="text" id="datepicker" size="30"></p>
+        
+        <p>Format: <br/>
+            <select id="format">
+                <option value="mm/dd//yy">Default - mm/dd//yy</option>
+                <option value="yy-mm-dd">ISO 8601 - yy0mm0dd</option>
+                <option value="d M, y">Short - d M, y</option>
+                <option value="d MM, y">Medium - d MM, y</option>
+                <option value="DD, d MM, yy">Full - DD, d MM, yy</option>
+                <option value="'day' d 'of' MM 'in the year' yy">With text - 'day' d 'of' MM 'in the year' yy</option>
+            </select>
+        </p>
+    </body>
+</html>

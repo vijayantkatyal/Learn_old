@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example 4</title>
+<style>
+    li {
+        list-style: none;
+        margin-bottom: 1em;
+    }
+    label { display: block; }
+    textarea { min-height: 6em; }
+    textarea:read-only {
+        border: 2px dashed silver;
+        cursor: default;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    textarea:read-write { border: 2px solid black; }
+</style>
+</head>
+<body>
+    <form action="" name="css3-1">
+        <ul>
+        <li>
+            <label for="terms">Your message</label>
+            <textarea id="terms" name="terms">These are the terms and conditions. Once upon a time, a mouse, a bird, and a sausage, entered into partnership and set up house together. For a long time all went well; they lived in great comfort, and prospered so far as to be able to add considerably to their stores.</textarea>
+        </li>
+        <li>
+            <label for="terms">Terms and conditions</label>
+            <textarea id="terms" name="terms" readonly>These are the terms and conditions. Once upon a time, a mouse, a bird, and a sausage, entered into partnership and set up house together. For a long time all went well; they lived in great comfort, and prospered so far as to be able to add considerably to their stores.</textarea>
+        </li>
+    </form>
+</body>
+</html>

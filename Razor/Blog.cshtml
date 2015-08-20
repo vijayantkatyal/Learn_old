@@ -1,0 +1,23 @@
+﻿@{
+    Page.Title = "Home";
+    var db=Database.Open("Blog");
+    var posts=db.Query("SELECT ID,Title,Body,PublicationDate From Posts");
+
+    @:Application Started At:@AppState["AppStartTime"]
+}
+
+@section Header {
+    My Blog
+}
+
+
+@foreach(var post in posts)
+{
+    @RenderPage("~/Posts/_Posts.cshtml",new {Post = post})
+}
+
+@section Footer
+{
+    Vijayant Katyal
+}
+

@@ -1,0 +1,30 @@
+﻿@{
+    bool deleteSuccess = false;
+
+    var photoName = "";
+    if(IsPost)
+    {
+        photoName = Request["photoFileName"]+".jpg";
+        var fullPath = Server.MapPath("~/images/" + photoName);
+
+        if(File.Exists(fullPath))
+        {
+            File.Delete(fullPath);
+            deleteSuccess=false;
+        }
+    }
+}
+
+<form name="deletePhoto" action="" method="post">
+    <p>File Name of image to delete (without .jpg extension):
+    <input type="text" name="photoFileName" value=""/>
+    </p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+@if(deleteSuccess)
+{
+    <p>
+    @photoName deleted!
+    </p>
+}

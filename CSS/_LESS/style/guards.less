@@ -1,0 +1,17 @@
+.mixin(@a) when (lightness(@a) >= 50%){
+	background-color: black;
+}
+
+.mixin(@a) when (lightness(@a) < 50%){
+	background-color: white;
+}
+
+//.mixin (@a) when (@a > 10), (@a < -10) { ... }
+
+.mixin(@a){
+	color: @a;
+}
+
+body{
+	.mixin(#ddd);
+}

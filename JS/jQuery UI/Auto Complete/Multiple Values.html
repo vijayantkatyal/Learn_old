@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+
+        <script>
+            $(function(){
+                var availableTags = 
+                [
+                    "ActionScript",
+                    "AppleScript",
+                    "Asp",
+                    "Basic",
+                    "C",
+                    "C++",
+                    "Clojure"
+                ];
+
+                function split(val)
+                {
+                    return val.split(/,\s*/);
+                }
+                function extractLast(term)
+                {
+                    return split(term).pop();
+                }
+
+                $('#tags')
+                .bind('keydown',function(event)
+                {
+                    if(event.keyCode === $.ui.keyCode.TAB && $(this).data('autocomplete').menu.active)
+                    {
+                        event.preventDefault();
+                    }
+                })
+                .autocomplete
+                ({
+                    minLength:0,
+                    source:function(request,response)
+                    {
+                        response($.ui.autocomplete.filter(availableTags,extractLast(request.term)));
+                    },
+                    focus:function()
+                    {
+                        return false;
+                    },
+                    select:function(event,ui)
+                    {
+                        var terms = split(this.value);
+                        terms.pop();
+                        terms.push(ui.item.value);
+                        terms.push("");
+                        this.value= terms.join(", ");
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="ui-widget">
+            <label for="tags">Tag programming languages: </label>
+            <input id="tags" size="50">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+﻿@{
+    var cacheItemKey = "Time";
+    var cacheHit = true;
+    var time = WebCache.Get(cacheItemKey);
+
+    if(time == null)
+    {
+        cacheHit = false;
+    }
+
+    if(cacheHit == false)
+    {
+        time = DateTime.Now;
+        WebCache.Set(cacheItemKey,time,1,false);
+    }
+}
+
+<div>
+    @if(cacheHit)
+    {
+        @:Found in cache.
+    }
+    else
+    {
+        @:Did not found in cache.
+    }
+
+    <div>
+        This Page was cached at @time.
+    </div>
+</div>

@@ -1,0 +1,14 @@
+background-image: url("http://assets.fnord.com/images/bg.png");.class {
+  filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
+}
+.blocked {
+  color: black;
+}
+@media screen, (max-width: 500px) {
+  set {
+    padding: 3 3 3 3;
+  }
+}
+h1 {
+  background-image: data-uri('../data/image.jpg');
+}

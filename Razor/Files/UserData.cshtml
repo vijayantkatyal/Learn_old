@@ -1,0 +1,51 @@
+﻿@{
+    var result = "";
+    if(IsPost)
+    {
+        var firstName = Request["FirstName"];
+        var email = Request["Email"];
+
+        var userData = firstName + "," +email + Environment.NewLine;
+
+        var dataFile = Server.MapPath("~/App_Data/data.txt");
+        //File.WriteAllText(@dataFile,userData);
+        File.AppendAllText(@dataFile,userData);
+        result="Information Saved.";
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <form id="Form1" method="post">
+            <div>
+                <table>
+                    <tr>
+                        <td>First Name:</td>
+                        <td><input id="FirstName" name="FirstName" type="text"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="text" name="Email"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </div>
+          
+            <div>
+                @if(result !="")
+                {
+                    <p>Result: @result</p>
+                }
+            </div>
+        </form>
+    </body>
+</html>

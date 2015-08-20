@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+        <style>
+            .ui-progressbar-value
+            {
+                background-image:url(pbar-ani.gif);
+            }
+        </style>
+        <script>
+            $(function(){
+                $('#progressbar').progressbar({
+                    value:59
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div style="height:20px;" id="progressbar"></div>
+    </body>
+</html>

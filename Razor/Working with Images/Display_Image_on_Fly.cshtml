@@ -1,0 +1,21 @@
+﻿@{
+    var imagePath = "";
+    if(Request["photoChoice"] != null)
+    {
+        imagePath = @"..\images\" + Request["photoChoice"];
+    }
+}
+
+<form method="post" action="">
+    <select name="photoChoice">
+        <option value="1.png">Photo 1</option>
+        <option value="2.jpg">Photo 2</option>
+        <option value="3.jpg">Photo 3</option>
+    </select>
+    <input type="submit" value="Submit"/>
+    
+    @if(imagePath != "")
+    {
+        <img src="@imagePath" alt="Sample Iamge" width="300px"/>
+    }
+</form>

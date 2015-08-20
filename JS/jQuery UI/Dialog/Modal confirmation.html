@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $('#dialog:ui-dialog').dialog('destroy');
+                
+                $('#dialog-confirm').dialog({
+                    resizable:false,
+                    height:240,
+                    width:400,
+                    modal:true,
+                    buttons:{
+                        "Delete all items":function()
+                        {
+                            $(this).dialog('close');
+                        },
+                        Cancel:function()
+                        {
+                            $(this).dialog('close');
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="dialog-confirm" title="Empty the recycle bin?">
+	        <p>
+                <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+                These items will be permanently deleted and cannot be recovered. Are you sure?
+            </p>
+        </div>
+    </body>
+</html>

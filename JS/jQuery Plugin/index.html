@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>jQuery</title>
+</head>
+<body>
+	<div id="data">this is data</div>
+</body>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/plugin.js"></script>
+	
+	<script>
+		// $("#data").myPlugin("custom text");
+
+		$("#data").myPlugin({
+			text      : 'hello',
+			color     : 'pink',
+			fontStyle : 'italic',
+			complete  : function(){
+				console.log('done!!');
+			}
+		});
+	</script>
+</html>

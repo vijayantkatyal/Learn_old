@@ -1,0 +1,27 @@
+﻿@{
+    var imagePath = "";
+    WebImage photo = new WebImage(@"..\Images\1.png");
+    if(photo != null)
+    {
+        imagePath = @"..\images\new.jpeg";
+        photo.AddTextWatermark("My WaterMark",fontColor:"Yellow",fontFamily:"Arial");
+        photo.Save(@"..\images\new");
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        @if(imagePath != "")
+        {
+            <div class="result">
+                <img src="@imagePath" alt="Image"/>
+            </div>
+        }
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<h1>Use of Observable here</h1>
+
+<script src="../Scripts/knockout.js" type="text/javascript"></script>
+
+<div>
+    <p>First Name: <b data-bind="text: firstname"></b></p>
+    <p>Last Name: <b data-bind="text: lastname"></b></p>
+</div>
+
+<div>
+    <p>First Name: <input type="text" data-bind="value: firstname"/></p>
+    <p>Last Name: <input type="text" data-bind="value: lastname"/></p>
+</div>
+
+<script>
+    function AppViewModel() {
+        this.firstname = ko.observable("Vijayant");
+        this.lastname = ko.observable("Katyal");
+    }
+
+    ko.applyBindings(new AppViewModel());
+</script>

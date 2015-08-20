@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/knockout.js"></script>
+        <!-- <script type="text/javascript" src="/Scripts/Introduction/Binding.js"></script> model can be external linked -->
+        <script>
+            function myViewModel()
+            {
+                this.personName = 'bob';
+                this.personAge = 12;
+            }
+        </script>
+    </head>
+    <body>
+        The Name is <span data-bind="text: personName"></span> and Age is <span data-bind="text:personAge"></span>
+        <hr>
+        Data bind in: 
+        <br>
+        <br>
+        Input Box: <input type="text" data-bind="text: personAge">
+        
+        <script>
+            ko.applyBindings(new myViewModel());
+        </script>
+    </body>
+</html>

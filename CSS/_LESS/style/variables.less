@@ -1,0 +1,27 @@
+// Variables
+
+@nice-blue: #5B83AD;
+
+h1{
+	color: @nice-blue;
+}
+
+@var: 0;
+.class1{
+	@var: 1;
+	.class{
+		@var: 2;
+		three: @var;
+		@var: 3;
+	}
+	one: @var;
+}
+
+
+// Lazy Loading
+
+h2{
+	color: @nice-red;
+}
+
+@nice-red: red;

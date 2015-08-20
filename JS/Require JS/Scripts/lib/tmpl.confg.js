@@ -1,0 +1,1 @@
+﻿infuser.defaults.templateSuffix = ".tmpl.html";infuser.defaults.templateUrl = "Scripts/templates";

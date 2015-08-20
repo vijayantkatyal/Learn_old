@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+        <script>
+            $(function()
+            {
+                
+                $('.spoiler').hide();
+                $('<br/><input type="button" class="revealer" value="Tell Me!">').insertBefore('.spoiler');
+                $('.revealer').click(function()
+                {
+                    $(this).hide();
+                    $(this).next().fadeIn();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>
+            Who Lost Their Recording contract Today ?
+        <span class="spoiler">the Zontiest</span>
+        </p>
+    </body>
+</html>

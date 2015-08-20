@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link type="text/css" href="/Style/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+        <script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.custom.min.js"></script>
+
+        <script>
+            $(function(){
+                $('.demo button:first').button({
+                icons:{
+                primary:'ui-icon-locked'
+                },
+                text:false
+                }).next().button({
+                icons:{
+                primary:'ui-icon-locked'
+                }
+                }).next().button({
+                icons: {
+                primary: "ui-icon-gear",
+                secondary: "ui-icon-triangle-1-s"
+                }
+                }).next().button({
+                icons: {
+                primary: "ui-icon-gear",
+                secondary: "ui-icon-triangle-1-s"
+                },
+                text: false
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="demo">
+            <button>Button with icon only</button>
+            <button>Button with icon on left</button>
+            <button>Button with two icons</button>
+            <button>Button with two icons and no text</button>
+        </div>
+    </body>
+</html>
